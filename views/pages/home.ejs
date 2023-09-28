@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Beauty Products</title>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+        <style>
+            *{
+                margin:0px;
+                padding:0px;
+                box-sizing: border-box;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            ul{
+                list-style:none;
+            }
+            a{
+                text-decoration: none;
+            }
+            .navigation{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 0px;
+                width:90%;
+                margin:auto;
+                max-width: 1100px;
+            }
+            .logo{
+                font-size: 1.8rem;
+                color:black;
+                font-weight: 800;
+                text-transform: uppercase;
+            }
+            .logo img{
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+                max-height: 150px;
+            }
+            .search-box{
+                width: 280px;
+                height:40px;
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: whitesmoke;
+                border-radius: 30px;
+                padding: 0px 20px;
+                margin-left: auto;
+            }
+            .search-box input{
+                width: 95%;
+                height: 100%;
+                background-color: transparent;
+                border: none;
+                outline: none;
+            }
+            .search-box button{
+                color:black;
+                border: none;
+                outline:none;
+                background-color: transparent;
+                cursor: pointer;
+            }
+            .nav-bts{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .nav-bts a{
+                width:35px;
+                height:35px;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background-color: #fed2d1;
+                color: #383838;
+                font-size: 0.8rem;
+                margin-left: 10px;
+            }
+            .nav-bts a i{
+                margin-top: 2px;
+            }
+            #main{
+                max-width: 1200px;
+                width: 90%;
+                padding: 50px;
+                border-radius: 30px;
+                min-height: 500px;
+                margin: auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                background-color: #ffedf6;
+            }
+            .main-img img{
+                width: 500px;
+                height: 500%;
+                max-height: 600px;
+                object-position: center;
+                object-fit: contain;
+                border-radius: 5%;
+            }
+            .main-text{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main-text span{
+                color: #ec26b1;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 0.8rem;
+                font-weight: 500;
+            }
+            .main-text h1{
+                font-size: 2.4rem;
+                color:black;
+                font-weight: 800;
+            }
+            .main-text h1 font{
+                background-color: #fed2d1;
+                padding: 0px 5px;
+            }
+            .main-text p{
+                color: #5a5a5a;
+                margin: 10px 0px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .main-text a{
+                font-weight: 800;
+                color: black;
+                border-bottom: 1px solid #646464;
+                margin-top: 30px;
+            }
+            .product-grid-3{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 15px;
+                max-width: 1200px;
+                width:90%;
+                margin: 15px auto;
+            }
+            .product-grid-box{
+                position: relative;
+                height: 210px;
+                border-radius: 10px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+            }
+            .product-grid-text{
+                position: absolute;
+                left:60%;
+                top: 50%;
+                transform: translate(-14%, -50%);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+
+            }
+            .product-grid-box img{
+                height: 100%;
+                object-fit: cover;
+                object-position: center right;
+            }
+            .product-grid-box1{
+                background-color: #dffbe2;
+            }
+            .product-grid-text span{
+                color:#5a5a5a;
+                font-size: 0.8rem;
+                font-weight: 500;
+            }
+            .product-grid-text a{
+                font-weight: 600;
+                color: #272727;
+                margin-top: 10px;
+            }
+            .product-grid-text strong{
+                color: #1d1d1d;
+                font-weight: 600;
+                font-size: 1.1rem;
+                line-height:1.5rem;
+            }
+            .product-grid-box2{
+                background-color: lightblue;
+            }
+            .product-grid-box3{
+                background-color:gainsboro;
+            }
+            #new-products{
+                max-width: 1200px;
+                width:90%;
+                margin: 50px auto;
+            }
+            .new-p-heading{
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                width:100%;
+                background-color: #fafafa;
+                padding: 10px 20px;
+                border-radius: 10px;
+            }
+            .new-p-heading h3{
+                font-size: 1.8rem;
+                color: #1d1d1d;
+                font-weight: 800;
+            }
+            .new-p-heading ul{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            .new-p-heading li{
+                padding: 2px 20px;
+                border-radius: 4px;
+                margin: 0px 3px;
+                color:#383838;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
+            .new-p-heading li.active{
+                background-color: #f97def;
+            }
+            .new-product-box{
+                max-width: 250px;
+                width: 100%;
+                border-radius:5px;
+                display: flex;
+                flex-direction: column;
+                background-color: #ffffff;
+                padding: 10px;
+                border: 1px solid #f1f1f1;
+
+            }
+            .new-product-img{
+                width: 100px;
+                height:250px;
+                padding: 20px;
+                display:flex;
+                margin:auto;
+                position: relative;
+            }
+            .new-product-img img{
+                width:200%;
+                height:100%;
+                object-fit:cover;
+                object-position: center;
+            }
+            .new-product-img span{
+                position: absolute;
+                left:10px;
+                top:10px;
+                background-color: #fed2d1;
+                color:#333333;
+                padding: 3px 10px;
+                font-weight: 600;
+                border-radius: 4px;
+                font-size: 0.8rem;
+            }
+            .new-product-text{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 5px 20px;
+            }
+            .new-product-text span{
+                color:#8b3d74;
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
+            .new-product-text a{
+                color:#1d1d1d;
+                font-weight: 600;
+                font-size:1rem;
+                text-align: center;
+            }
+            .new-product-container{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-gap: 20px;
+                margin-top: 20px;
+            }
+            .product-grid-half{
+                max-width: 1200px;
+                width:90%;
+                margin:50px auto;
+                display: grid;
+                grid-template-columns: 1.5fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                grid-gap:20px;
+                max-height: 300px;
+            }
+            .product-grid-half .product-grid-box1,
+            .product-grid-half .product-grid-box2,
+            .product-grid-half .product-grid-box3{
+                height:100%;
+            }
+            .product-grid-half .product-grid-box1{
+                grid-row: 1/3;
+            }
+            .product-grid-half .product-grid-box1 .product-grid-text{
+                max-height: 220px;
+            }
+            .product-grid-half .product-grid-box1 .product-grid-text strong{
+                font-size: 1.4rem;
+                line-height: 1.8rem;
+            }
+            #popular-products{
+                max-width: 1200px;
+                width:90%;
+                margin: 50px auto;
+            }
+            .popular-heading{
+                width:100%;
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #fafafa;
+                padding: 10px 20px;
+                border-radius: 10px;
+            }
+            .popular-heading h3{
+                font-size: 1.8rem;
+                color:#1d1d1d;
+                font-weight: 800;
+            }
+            .popular-heading a{
+                color:#5a5a5a;
+                font-size:0.9rem;
+            }
+            .popular-box{
+                max-width:300px;
+                width:100%;
+                display:grid;
+                grid-template-columns:100px 1fr;
+            }
+            .popular-box-img{
+                width:100%;
+                height:120px;
+                background-color: #fff8f8;
+                border-radius: 6px;
+                padding: 10px;
+            }
+            .popular-box-img img{
+                width:100%;
+                height:100%;
+                object-fit: contain;
+                object-position: center;
+            }
+            .popular-box-text{
+                display:flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin-left: 10px;
+                width:100%;
+            }
+            .popular-box-text a{
+                color: #363636;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+            .popular-box-text .p-cat{
+                color:#8b3d74;
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+            .popular-box-text .p-price{
+                color:#1d1d1d;
+                font-size:1.4rem;
+                font-weight:500;
+            }
+            .popular-box-text .p-price del{
+                color:#8b3d74;
+                font-size: 1rem;
+            }
+            .popular-container{
+                display:grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-gap: 40px;
+                margin-top: 30px;
+            }
+            #partner{
+                display: flex;
+                flex-direction: column;
+                max-width: 1200px;
+                width:90%;
+                margin: 50px auto;
+            }
+            .partner-heading h3{
+                font-size: 1.5rem;
+                color: #202020;
+                letter-spacing: 0.5px;
+                font-weight: 700;
+            }
+            .logo-container{
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                margin-top: 40px;
+                grid-gap: 15px;
+            }
+            .logo-container img{
+                height: 70px;
+                object-position: center;
+                object-fit: contain;
+                filter:grayscale(1);
+                opacity: 0.3;
+                transition: all ease 0.3s;
+            }
+            .logo-container img:hover{
+                filter:grayscale(0);
+                opacity: 1;
+            }
+            .product-grid-2{
+                max-width: 1200px;
+                width:90%;
+                margin:50px auto;
+                display:grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap:30px;
+            }
+            footer{
+                width:100%;
+                border-top:1px solid #e9e9e9;
+
+            }
+            .footer-container{
+                max-width:1200px;
+                width:90%;
+                margin:0px auto;
+                padding:50px 0px;
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .footer-company-box{
+                max-width: 530px;
+            }
+            .footer-company-box .footer-logo{
+                font-size: 1.8rem;
+                color:#333333;
+                text-transform: uppercase;
+                font-weight: 900;
+            }
+            .footer-company-box p{
+                color: #585858;
+                font-size: 0.9rem;
+                line-height: 1.4rem;
+                margin: 5px 0px;
+            }
+            .footer-social{
+                display:flex;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            .footer-social a{
+                margin-top:10px;
+                margin-right: 10px;
+                width:40px;
+                height:40px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border:1px solid #e9e9e9;
+                color:#333333;
+                font-size: 0.9rem;
+            }
+            .footer-link-box strong{
+                font-size: 1.2rem;
+                color:#333333;
+                font-weight: 600;
+            }
+            .footer-link-box ul li a{
+                color: #797979;
+                display:flex;
+                margin-bottom: 5px;
+                font-weight: 500;
+                transition: all ease 0.3s;
+            }
+            .footer-link-box ul li a:hover{
+                color: #0f0f0f;
+            }
+            .footer-bottom{
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                grid-gap: 10px;
+                border-top: 1px solid #e9e9e9;
+                padding:20px 0px;
+                max-width: 1200px;
+                width:90%;
+                margin: auto;
+
+            }
+            @media(max-width:1100px){
+                .footer-container{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap:40px;
+                }
+                .new-product-container{
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+                .product-grid-3{
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+            @media(max-width:1000px){
+                .product-grid-half{
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 1fr 200px;
+                    max-height: 100px;
+                }
+                .product-grid-half .product-grid-box1{
+                    grid-column: 1/3;
+                    grid-row: 1/2;
+                    height: 300px;
+                }
+            }
+            @media(max-width:900px){
+                #main{
+                    display:flex;
+                    flex-direction:column-reverse ;
+                }
+                .main-text{
+                    margin-top: 40px;
+                    margin-bottom: 10px;
+                }
+                .popular-container{
+                    grid-template-columns: 1fr 1fr;
+
+                }
+                .logo-container{
+                    margin:20px;
+                    justify-content: space-between;
+                }
+                .logo-container img{
+                    height:40px;
+                }
+            }
+       
+            
+
+        </style>
+
+    </head>
+    <body>
+        <nav class="navigation">
+            <a href="#" class="logo">
+                <img src="/images/download.png"/>
+            </a>
+            <form class="search-box">
+                <input type="text" placeholder="Search Products Here" required/>
+                <button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+            <div class="nav-bts">
+                <a href="/profile" class="nav-user">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+                <a href="#" class="nav-cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            </div>
+        </nav>
+        <section id="main">
+            <div class="main-text">
+                <span> New Collection</span>
+                <h1>Beautify Me is a<font>Beauty Product's Website</font></h1>
+                <p> This Website contains the Women beauty products which are chemichal free products.
+                    These products won't cause any side effects so any one can shop easily via this website.
+                </p>
+                <a href="#">Shop Now</a>
+            </div>
+            <div class="main-img">
+                <img src="/images/images (2).jpeg"/>
+            </div>
+
+        </section>
+        <section class="product-grid-3">
+            <div class="product-grid-box product-grid-box1">
+                <img src="/images/images.jpeg"/>
+                <div class="product-grid-text">
+                    <strong>Natural skin care products</strong>
+                    <span>Skin Care Product</span>
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+            <div class="product-grid-box product-grid-box2">
+                <img src="/images/skin1.jpeg"/>
+                <div class="product-grid-text">
+                    <strong>Natural skin care products</strong>
+                    <span>Skin Care Product</span>
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+            <div class="product-grid-box product-grid-box3">
+                <img src="/images/face.jpeg"/>
+                <div class="product-grid-text">
+                    <strong>Natural skin care products</strong>
+                    <span>Skin Care Product</span>
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+        </section>
+        <section id="new-products">
+            <div class="new-p-heading">
+                <h3>New Product's</h3>
+                <ul>
+                    <li class="active" data-filter="all">All</li>
+                    <li data-filter="skin">Skin</li>
+                    <li data-filter="makeup">MakeUp</li>
+                    <li data-filter="nails">Nail's</li>
+                </ul>
+            </div>
+            <div class="new-product-container">
+                <div class="new-product-box skin">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/wash2.jpg"/>
+                        <span>Skin Care</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="/product.html" class="new-product-title">FaceWash For Women</a>
+                        <span>750₹</span>
+                    </div>
+                </div>
+                <div class="new-product-box nails">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/n1.jpeg"/>
+                        <span>Nail's</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="#" class="new-product-title">Nail Growth Serum</a>
+                        <span>600₹</span>
+                    </div>
+                </div>
+                <div class="new-product-box skin">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/sk1.jpeg"/>
+                        <span>Skin Care</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="#" class="new-product-title">Moisturizer</a>
+                        <span>220₹</span>
+                    </div>
+                </div>
+                <div class="new-product-box makeup">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/mk3.jpeg"/>
+                        <span>MakeUp</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="#" class="new-product-title">Compact Powder</a>
+                        <span>1250₹</span>
+                    </div>
+                </div>
+                <div class="new-product-box skin">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/sk2.jpeg"/>
+                        <span>Skin Care</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="#" class="new-product-title">Sunscream Lotion</a>
+                        <span>550₹</span>
+                    </div>
+                </div>
+                <div class="new-product-box nails">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/n2.jpeg"/>
+                        <span>Nail's</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="#" class="new-product-title">Nail Art</a>
+                        <span>150₹</span>
+                    </div>
+                </div>
+                <div class="new-product-box makeup">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/mk4.jpeg"/>
+                        <span>MakeUp</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="#" class="new-product-title">lipstick</a>
+                        <span>450₹</span>
+                    </div>
+                </div>
+                <div class="new-product-box skin">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/sk3.jpeg"/>
+                        <span>Skin Care</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="#" class="new-product-title">Vitamin-C Serum</a>
+                        <span>1200₹</span>
+                    </div>
+                </div>
+                <div class="new-product-box nails">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/n4.jpeg"/>
+                        <span>Nail's</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="#" class="new-product-title">Lavender NailPolish</a>
+                        <span>110₹</span>
+                    </div>
+                </div>
+                <div class="new-product-box makeup">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/mk2.jpeg"/>
+                        <span>MakeUp</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="#" class="new-product-title">Foundation</a>
+                        <span>300₹</span>
+                    </div>
+                </div>
+                <div class="new-product-box nails">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/n3.jpeg"/>
+                        <span>Nails</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="#" class="new-product-title">Glitering-3d Nail Art</a>
+                        <span>150₹</span>
+                    </div>
+                </div>
+                <div class="new-product-box makeup">
+                    <a href="#" class="new-product-img">
+                        <img src="/images/mk1.jpeg"/>
+                        <span>MakeUp</span>
+                    </a>
+                    <div class="new-product-text">
+                        <a href="#" class="new-product-title">EyeLiner</a>
+                        <span>200₹</span>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        <section class="product-grid-half">
+            <div class="product-grid-box product-grid-box1 " style = "background-color:plum;">
+                <img src="/images/s4.jpg"/>
+                <div class="product-grid-text">
+                    <strong>Natural MakeUp Products</strong>
+                    <span>MakeUp Product</span>
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+            <div class="product-grid-box product-grid-box2" style = "background-color:lightpink;">
+                <img src="/images/s5.jpeg"/>
+                <div class="product-grid-text">
+                    <strong>Natural skin care products</strong>
+                    <span>Skin Care Product</span>
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+            <div class="product-grid-box product-grid-box3" style = "background-color:lightcyan;">
+                <img src="/images/s6.jpeg"/>
+                <div class="product-grid-text">
+                    <strong>Natural skin care products</strong>
+                    <span>Skin Care Product</span>
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+        </section>
+        <section id="popular-products">
+            <div class="popular-heading">
+                <h3>Popular Product's</h3>
+                <a href="#">All</a>
+            </div>
+            <div class="popular-container">
+                <div class="popular-box">
+                    <a href="#" class="popular-box-img">
+                        <img src="/images/p1.jpg"/>
+                    </a>
+                    <div class="popular-box-text">
+                        <a href="#">FaceCream For Women</a>
+                        <span class="p-cat">Face Product's</span>
+                        <span class="p-price">1000₹ <del> 1500₹</del></span>
+                    </div>
+                </div>
+                <div class="popular-box">
+                    <a href="#" class="popular-box-img">
+                        <img src="/images/p2.jpg"/>
+                    </a>
+                    <div class="popular-box-text">
+                        <a href="#">Face Moisturizer For Women</a>
+                        <span class="p-cat">Face Product's</span>
+                        <span class="p-price">2000₹ <del> 2500₹</del></span>
+                    </div>
+                </div>
+                <div class="popular-box">
+                    <a href="#" class="popular-box-img">
+                        <img src="/images/p3.jpg"/>
+                    </a>
+                    <div class="popular-box-text">
+                        <a href="#">Lotion For Women</a>
+                        <span class="p-cat">Face Product's</span>
+                        <span class="p-price">330₹ <del> 450₹</del></span>
+                    </div>
+                </div>
+                <div class="popular-box">
+                    <a href="#" class="popular-box-img">
+                        <img src="/images/p4.jpg"/>
+                    </a>
+                    <div class="popular-box-text">
+                        <a href="#">Face GlowingCream For Women</a>
+                        <span class="p-cat">Face Product's</span>
+                        <span class="p-price">1500₹ <del> 2500₹</del></span>
+                    </div>
+                </div>
+                <div class="popular-box">
+                    <a href="#" class="popular-box-img">
+                        <img src="/images/sk2.jpeg"/>
+                    </a>
+                    <div class="popular-box-text">
+                        <a href="#">Mist For Women</a>
+                        <span class="p-cat">Face Product's</span>
+                        <span class="p-price">850₹ <del> 1500₹</del></span>
+                    </div>
+                </div>
+                <div class="popular-box">
+                    <a href="#" class="popular-box-img">
+                        <img src="/images/sk1.jpeg"/>
+                    </a>
+                    <div class="popular-box-text">
+                        <a href="#">FaceCream For Women</a>
+                        <span class="p-cat">Face Product's</span>
+                        <span class="p-price">500₹ <del> 900₹</del></span>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+        <section id="partner">
+            <div class="partner-heading">
+                <h3>Our Partners</h3>
+            </div>
+            <div class="logo-container">
+                <img src="/images/l1.png"/>
+                <img src="/images/l2.png"/>
+                <img src="/images/l3.png"/>
+                <img src="/images/l4.png"/>
+            </div>
+        </section>
+        <section class="product-grid-2">
+            <div class="product-grid-box product-grid-box1">
+                <img src="/images/s4.jpg"/>
+                <div class="product-grid-text">
+                    <strong>Natural skin care products</strong>
+                    <span>Skin Care Product</span>
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+            <div class="product-grid-box product-grid-box2">
+                <img src="/images/skin1.jpeg"/>
+                <div class="product-grid-text">
+                    <strong>Natural skin care products</strong>
+                    <span>Skin Care Product</span>
+                    <a href="#">Shop Now</a>
+                </div>
+            </div>
+            
+        </section>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-company-box">
+                    <a href="#" class="footer-logo">Logo</a>
+                    <p>The Beauty Products are most essential items in today's world.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+
+                    </div>
+                </div>
+                <div class="footer-link-box">
+                    <strong>Main Link's</strong>
+                    <ul>
+                        <li><a href="#">Our Product's</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Term's and Condition's</a></li>
+                    </ul>
+                </div>
+                <div class="footer-link-box">
+                    <strong>Product Link's</strong>
+                    <ul>
+                        <li><a href="#">Skin Care</a></li>
+                        <li><a href="#">Hair Care</a></li>
+                        <li><a href="#">Nail's Care</a></li>
+                        <li><a href="#">MakeUp Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-link-box">
+                    <strong>Organic Products Link's</strong>
+                    <ul>
+                        <li><a href="#">Organic Creams</a></li>
+                        <li><a href="#">Organic Face Masks</a></li>
+                        <li><a href="#">Organic Cosmetics</a></li>
+                        <li><a href="#">Term's</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-own">Made By Astro</span>
+                <span class="copy">© Copyright 2023 - Astro</span>
+                
+            </div>
+        </footer>
+       
+        <script src="/js.js"></script>
+        <script>
+            var selector = '.new-p-heading li';
+            
+            $(selector).on('click',function(){
+                $(selector).removeClass('active')
+                $(selector).addClass('active')
+            });
+            $(document).ready(function(){
+                $('.new-p-heading li').click(function(){
+                    const value = $(this).attr('data-filter');
+                    if(value == 'all'){
+                        $('.new-product-box').show('1000');
+                    }
+                    else{
+                        $('.new-product-box').not('.'+value).hide('1000');
+                        $('.new-product-box').filter('.'+value).show('1000');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
